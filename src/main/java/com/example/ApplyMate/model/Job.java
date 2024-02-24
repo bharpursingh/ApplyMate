@@ -43,8 +43,18 @@ public class Job {
         this.response = response;
     }
 
+    public Job(String jobPosition, String jobDescription, Date datePosted, Date dateApplied, String[] keywords, String response) {
+        this.id = 12L;
+        this.jobPosition = jobPosition;
+        this.jobDescription = jobDescription;
+        this.datePosted = datePosted;
+        this.dateApplied = dateApplied;
+        this.keywords = keywords;
+        this.response = response;
+    }
+
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public String getJobPosition() {
@@ -98,7 +108,7 @@ public class Job {
     @Override
     public String toString() {
         return "Job{" +
-                "Id=" + Id +
+                "Id=" + id +
                 ", jobPosition='" + jobPosition + '\'' +
                 ", jobDescription='" + jobDescription + '\'' +
                 ", datePosted=" + datePosted +
