@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 @Entity
-@Table(name="job_tracker")
+@Table(name="JOB_TRACKER")
 public class Job {
 
     @Id
@@ -32,6 +32,9 @@ public class Job {
 
     @Column(name="response")
     private String response;
+
+    public Job() {
+    }
 
     public Job(Long id, String jobPosition, String jobDescription, Date datePosted, Date dateApplied, String[] keywords, String response) {
         this.id = id;

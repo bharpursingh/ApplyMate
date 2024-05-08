@@ -28,6 +28,8 @@ public class JobMapper {
         );
     }
 
+    // When we are creating JOB object unique id will be decided by the system
+    // Hence while mapping from job to
     public static Job maptoJob(JobDtoCreate jobDtoCreate){
 
         return new Job(
