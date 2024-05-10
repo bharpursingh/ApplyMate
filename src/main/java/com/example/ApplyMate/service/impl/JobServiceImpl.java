@@ -62,4 +62,13 @@ public class JobServiceImpl implements JobService {
 
         return JobMapper.mapToJobDto(updatedJob);
     }
+
+    @Override
+    public void deleteJob(Long jobid) {
+
+        Job job = jobRepository.findById(jobid)
+                .orElseThrow(() -> new ResourceNotFoundException("Job does not exist with id: "+jobid));
+
+        jobRepository.deleteById(jobid);
+    }
 }

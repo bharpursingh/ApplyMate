@@ -6,6 +6,7 @@ import com.example.ApplyMate.service.JobService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.service.annotation.PutExchange;
 
 import java.util.List;
 
@@ -43,5 +44,13 @@ public class JobController {
                                             @RequestBody JobDto jobDto){
         JobDto jobdto = jobService.updateJob(jobid, jobDto);
         return ResponseEntity.ok(jobDto);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<String> deleteJob(@PathVariable("id") Long jobid){
+
+        jobService.deleteJob(jobid);
+
+        return ResponseEntity.ok("Job Deleted!!");
     }
 }

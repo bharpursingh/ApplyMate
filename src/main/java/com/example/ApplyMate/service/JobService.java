@@ -13,4 +13,8 @@ public interface JobService {
     List<JobDto> getAllJobs();
 
     JobDto updateJob(Long jobid, JobDto jobDto);
+
+    void deleteJob(Long jobid);
+
+
 }
