@@ -11,4 +11,6 @@ public interface JobService {
     JobDto getJobById(Long jobId);
 
     List<JobDto> getAllJobs();
+
+    JobDto updateJob(Long jobid, JobDto jobDto);
 }

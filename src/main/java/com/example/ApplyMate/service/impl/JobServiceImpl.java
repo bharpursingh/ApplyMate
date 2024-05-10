@@ -44,4 +44,22 @@ public class JobServiceImpl implements JobService {
         List<Job> jobs = jobRepository.findAll();
         return jobs.stream().map((job)->JobMapper.mapToJobDto(job)).collect(Collectors.toList());
     }
+
+    @Override
+    public JobDto updateJob(Long jobid, JobDto jobDto) {
+
+        Job job = jobRepository.findById(jobid)
+                .orElseThrow(()-> new ResourceNotFoundException("Job does not exist with id: "+jobid));
+
+        job.setDateApplied(jobDto.getDateApplied());
+        job.setJobDescription(jobDto.getJobDescription());
+        job.setJobPosition(jobDto.getJobPosition());
+        job.setDatePosted(jobDto.getDatePosted());
+        job.setResponse(jobDto.getResponse());
+        job.setKeywords(jobDto.getKeywords());
+
+        Job updatedJob = jobRepository.save(job);
+
+        return JobMapper.mapToJobDto(updatedJob);
+    }
 }

@@ -37,4 +37,11 @@ public class JobController {
         List<JobDto> jobs = jobService.getAllJobs();
         return ResponseEntity.ok(jobs);
     }
+
+    @PutMapping("{id}")
+    public ResponseEntity<JobDto> updateJob(@PathVariable("id") Long jobid,
+                                            @RequestBody JobDto jobDto){
+        JobDto jobdto = jobService.updateJob(jobid, jobDto);
+        return ResponseEntity.ok(jobDto);
+    }
 }
