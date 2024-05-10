@@ -7,7 +7,11 @@ import com.example.ApplyMate.exception.ResourceNotFoundException;
 import com.example.ApplyMate.model.Job;
 import com.example.ApplyMate.repository.JobRepository;
 import com.example.ApplyMate.service.JobService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
@@ -33,5 +37,11 @@ public class JobServiceImpl implements JobService {
                .orElseThrow(()-> new ResourceNotFoundException("Job does not exist with given id : " + jobId));
 
         return JobMapper.mapToJobDto(job);
+    }
+
+    @Override
+    public List<JobDto> getAllJobs() {
+        List<Job> jobs = jobRepository.findAll();
+        return jobs.stream().map((job)->JobMapper.mapToJobDto(job)).collect(Collectors.toList());
     }
 }
