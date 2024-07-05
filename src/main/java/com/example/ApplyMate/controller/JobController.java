@@ -6,11 +6,11 @@ import com.example.ApplyMate.service.JobService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.PutExchange;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://127.0.0.1:3000/")
 @RequestMapping("/api/jobs")
 public class JobController {
 
