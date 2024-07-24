@@ -21,6 +21,7 @@ target/
 *.mvn/
 *mvnw
 *mvnw.cmd
+.DS_Store
 
 ### NetBeans ###
 /nbproject/private/
